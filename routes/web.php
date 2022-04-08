@@ -25,3 +25,13 @@ Route::get('register',function(){
 
     return view('register');
 });
+
+Route::get('/about',function(){
+
+    return view('pages.about');
+});
+
+Route::get('/users/{id}',function($id){
+
+    return 'this is the user '. $id;
+});
