@@ -6,8 +6,8 @@
     <title>{{config('app.name','Laravel Project')}}</title>
 </head>
 <body>
-<h1>About</h1>
-<p> this is about page</p>
+<h1>Services</h1>
+<p> this is service page</p>
 
 
 </body>

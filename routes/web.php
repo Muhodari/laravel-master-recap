@@ -20,23 +20,26 @@ use App\Http\Controllers\PagesController;
 //    return view('welcome');
 //});
 
- Route::get('',[PagesController::class, 'index']);
+Route::get('',[PagesController::class, 'index']);
 
-Route::get('login', function() {
-    return view('login');
-});
+Route::get('/about',[PagesController::class, 'about']);
+Route::get('/services',[PagesController::class, 'services']);
 
-Route::get('register',function(){
-
-    return view('register');
-});
-
-Route::get('/about',function(){
-
-    return view('pages.about');
-});
-
-Route::get('/users/{id}',function($id){
-
-    return 'this is the user '. $id;
-});
+//Route::get('login', function() {
+//    return view('login');
+//});
+//
+//Route::get('register',function(){
+//
+//    return view('register');
+//});
+//
+//Route::get('/about',function(){
+//
+//    return view('pages.about');
+//});
+//
+//Route::get('/users/{id}',function($id){
+//
+//    return 'this is the user '. $id;
+//});
