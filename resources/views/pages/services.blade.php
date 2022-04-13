@@ -1,8 +1,8 @@
 @extends('layouts.app')
 
 @section('content')
-<h1>Services</h1>
-<p> this is service page</p>
+<h1>{{$title}}</h1>
+<p> {{$description}}</p>
 
 @endsection
 
