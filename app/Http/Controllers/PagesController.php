@@ -8,7 +8,9 @@ class PagesController extends Controller
 {
 
     public function index(){
-        return  view('pages.index');
+
+        $title="Welcome to programmingKnowledge";
+        return  view('pages.index', compact('title'));
     }
     public function about(){
         return  view('pages.about');
