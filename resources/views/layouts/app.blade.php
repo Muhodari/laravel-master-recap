@@ -39,7 +39,22 @@
                     <!-- Right Side Of Navbar -->
                     <ul class="navbar-nav ms-auto">
                         <!-- Authentication Links -->
-                        @guest
+
+                        <li class="nav-item">
+                            <a class="nav-link" href="/">Home</a>
+                        </li>
+
+                        <li class="nav-item">
+                            <a class="nav-link" href="about">About</a>
+                        </li>
+
+                        <li class="nav-item">
+                            <a class="nav-link" href="/services">Services</a>
+                        </li>
+
+
+
+                    @guest
                             @if (Route::has('login'))
                                 <li class="nav-item">
                                     <a class="nav-link" href="{{ route('login') }}">{{ __('Login') }}</a>
@@ -75,7 +90,7 @@
             </div>
         </nav>
 
-        <main class="py-4">
+        <main class="py-4 container">
             @yield('content')
         </main>
     </div>
