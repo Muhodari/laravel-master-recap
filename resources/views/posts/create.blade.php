@@ -15,8 +15,11 @@
 
     <div class="form-group">
         {{Form::label('body','Body')}}
-        {{Form::text('body','',['class' => 'form-control', 'placeholder' => 'body'])}}
+        {{Form::textarea('body','',['class' => 'form-control', 'placeholder' => 'Body'])}}
     </div>
+
+
+    {{ Form::submit('Submit',['class'=>'btn btn-primary mt-3'])}}
 
     {!! Form::close() !!}
 
