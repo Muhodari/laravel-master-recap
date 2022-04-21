@@ -54,6 +54,10 @@ class PostsController extends Controller{
         $post = New Post();
         $post->title = $request->input('title');
         $post->body  = $request->input('body');
+
+//        Auto capturing the user id once logged in
+        $post->user_id = auth()->user()->id;
+
         $post->save();
 
 
