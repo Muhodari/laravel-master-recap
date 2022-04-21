@@ -21,7 +21,7 @@
 </head>
 <body>
     <div id="app">
-        <nav class="navbar navbar-expand-md navbar-light bg-white shadow-sm">
+        <nav class="navbar navbar-expand-md navbar-inverse  shadow-sm">
             <div class="container">
                 <a class="navbar-brand" href="{{ url('/') }}">
                     {{ config('app.name', 'Laravel') }}
@@ -36,6 +36,7 @@
                         <li class="nav-item">
                             <a class="nav-link" href="/posts/create">Add Post</a>
                         </li>
+
                     </ul>
 
                     <!-- Right Side Of Navbar -->
@@ -51,12 +52,14 @@
                         </li>
 
                         <li class="nav-item">
-                             <a class="nav-link" href="/services">Services</a>
+                            <a class="nav-link" href="/services">Services</a>
                         </li>
 
                         <li class="nav-item">
                             <a class="nav-link" href="/posts">Blog</a>
                         </li>
+
+
 
 
 
@@ -96,15 +99,14 @@
             </div>
         </nav>
 
+        <div class="container">
+            @include('inc.messages')
+            <main class="py-4">
+                @yield('content')
+            </main>
+        </div>
 
 
-
-        <main class="py-4 container">
-     {{--    display error handle--}}
-      @include('inc.messages')
-
-            @yield('content')
-        </main>
     </div>
 </body>
 </html>
