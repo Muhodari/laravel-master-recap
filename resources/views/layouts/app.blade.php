@@ -94,7 +94,13 @@
             </div>
         </nav>
 
+
+
+
         <main class="py-4 container">
+     {{--    display error handle--}}
+      @include('inc.messages')
+
             @yield('content')
         </main>
     </div>
