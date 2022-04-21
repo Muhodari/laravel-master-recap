@@ -1,14 +1,18 @@
 @extends('layouts.app')
 
 @section('content')
- <a href="/posts" class="btn btn-dark  ">Go Back</a>
+ <a href="/posts" class="btn btn-default  ">Go Back</a>
 
     <h1 >{{$post->title}}</h1>
      <p >{{$post->body}}</p>
     <hr>
    <small>written on {{$post->created_at}}</small>
-    <hr>
 
+
+ @if(!Auth::guest())
+    @if(Auth::user()->id == $post->user_id)
+
+     <hr>
  <a href="/posts/{{$post->id}}/edit" class="btn btn-default">Edit</a>
 
  {!! Form::open(
@@ -21,8 +25,8 @@
  {{Form::submit('Delete',['class'=>'btn btn-danger'])}}
 
  {!! Form::close() !!}
-
-
+    @endif
+ @endif
 
 
 @endsection
