@@ -53,8 +53,13 @@ class PostsController extends Controller
             'title'=> 'required',
             'body' => 'required'
         ]);
+        $post = New Post();
+        $post->title = $request->input('title');
+        $post->body  = $request->input('body');
+        $post->save();
 
-        return 143;
+
+        return redirect('/posts')->with('success','Post created successfully');
     }
 
     /**
