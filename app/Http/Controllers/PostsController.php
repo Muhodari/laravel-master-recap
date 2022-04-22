@@ -84,7 +84,7 @@ class PostsController extends Controller{
 
 
         }else{
-            $fileNameToStore ='noimage.jpeg';
+            $fileNameToStore ='noimage.jpg';
         }
 
         $post = New Post();
@@ -188,7 +188,7 @@ class PostsController extends Controller{
             return redirect('/posts')->with('error','You are not authorized to delete this post');
         }
 
-        if($post->cover_image != 'noimage.jpeg'){
+        if($post->cover_image != 'noimage.jpg'){
             Storage::delete('public/cover_images/'.$post->cover_image);
 
         }
