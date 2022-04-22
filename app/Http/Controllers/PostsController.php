@@ -63,14 +63,33 @@ class PostsController extends Controller{
         $this->validate($request,[
 
             'title'=> 'required',
-            'body' => 'required'
+            'body' => 'required',
+            'cover_image' => 'image|nullable|max:1999'
         ]);
+
+//        handle the file upload
+
+        if($request->hasFile('cover_image')){
+
+//            get file name  with extensions
+            $fileNameWithExt = $request->file('cover_image')->getClientOriginalName();
+            $fileName = pathinfo($fileNameWithExt,PATHINFO_FILENAME);
+            $extension = $request -> file('cover_image')->getClientOriginalExtension();
+            $fileNameToStore = $fileName.'_'.time().'.'.$extension;
+            $path=$request->file('cover_image')->storeAs('public/cover_images',$fileNameToStore);
+
+
+
+
+        }else{
+            $fileNameToStore ='noimage.jpeg';
+        }
+
         $post = New Post();
         $post->title = $request->input('title');
         $post->body  = $request->input('body');
-
-//        Auto capturing the user id once logged in
         $post->user_id = auth()->user()->id;
+        $post->cover_image= $fileNameToStore;
 
         $post->save();
 
