@@ -145,6 +145,10 @@ class PostsController extends Controller{
             'cover_image' => 'image|nullable|max:1999'
         ]);
 
+
+        $post =Post::find($id);
+
+
 //        handle the file upload
 
         if($request->hasFile('cover_image')){
@@ -155,11 +159,13 @@ class PostsController extends Controller{
             $extension = $request -> file('cover_image')->getClientOriginalExtension();
             $fileNameToStore = $fileName.'_'.time().'.'.$extension;
 
+            Storage::delete('public/cover_images/'.$post->cover_image);
             $path=$request->file('cover_image')->storeAs('public/cover_images',$fileNameToStore);
+
+
         }
 
 
-        $post =Post::find($id);
 
         $post->title = $request->input('title');
         $post->body  = $request->input('body');
