@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Post;
+use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Storage;
 
@@ -109,7 +110,13 @@ class PostsController extends Controller{
     {
         //
         $post = Post::find($id);
-       return  view('posts.show')->with('post',$post);
+
+        $id =$post->user_id;
+        $user = User::find($id);
+       return  view('posts.show')->with([
+           'post'=>$post,
+           'user'=>$user
+       ]);
     }
 
     /**

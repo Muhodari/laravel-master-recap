@@ -4,10 +4,16 @@
  <a href="/posts" class="btn btn-default  ">Go Back</a>
 
     <h1 >{{$post->title}}</h1>
+ <div class="card">
+     <h3>{{$user->name}}</h3>
+ </div>
 
  <div class="row">
 
+
      <div class="col-md-12">
+
+
       <img style="width: 100%" src="/storage/cover_images/{{$post->cover_image}}" alt="Image">
 
      </div>
